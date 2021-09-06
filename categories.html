@@ -14,7 +14,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
-  <body>
+  <body onload="cargarNombreUsuarioCategories()"> <!--onload="cargarNombreUsuarioCategories()" 
+    onload es un evento, que lo que hace es que cuando se cargue el body cargue la funcion que llamo ahi, y la busca y carga en el spam-->
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
         <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
@@ -23,6 +24,7 @@
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
       </div>
+      <span class="py-2 d-none d-md-inline-block" id="spanUsuarioCategories" style="color:white;"></span>
     </nav>
     <main role="main" class="pb-5">
         <div class="text-center p-4">

@@ -33,8 +33,9 @@
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
+<body onload="cargarNombreUsuarioCart()"> <!--onload="cargarNombreUsuarioCart()" 
+  onload es un evento, que lo que hace es que cuando se cargue el body cargue la funcion que llamo ahi, y la busca y carga en el spam-->
+  <nav class="site-header sticky-top py-1 bg-dark"> 
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
@@ -42,6 +43,7 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
     </div>
+    <span class="py-2 d-none d-md-inline-block" id="spanUsuarioCart" style="color:white;"></span>
   </nav>
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">

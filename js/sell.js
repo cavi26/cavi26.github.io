@@ -147,3 +147,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             return false;
     });
 });
+
+//esta función se dispara desde la etiqueta <body> de sell.html con el evento onload;
+function cargarNombreUsuarioSell(){
+
+    //Obtengo el valor previamente guardado desde el almacen del navegador
+    nombreUsuario = window.localStorage.getItem('userName');
+    
+    //Lo inserto dentro de un span que cree dentro del body de sell.html
+    document.getElementById('spanUsuarioSell').innerHTML = nombreUsuario;
+    
+}

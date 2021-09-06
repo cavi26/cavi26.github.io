@@ -44,4 +44,16 @@ var getJSONData = function(url){
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
 });
+
+//esta función se dispara desde la etiqueta <body> de index.html con el evento onload;
+function cargarNombreUsuario(){
+
+  //Obtengo el valor previamente guardado desde el almacen del navegador
+  nombreUsuario = window.localStorage.getItem('userName');
+
+  //Lo inserto dentro de un span que cree dentro del body de index.html
+  document.getElementById('spanUsuarioIndex').innerHTML = nombreUsuario;
+
+}

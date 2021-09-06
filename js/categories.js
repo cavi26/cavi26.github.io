@@ -133,4 +133,16 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
 });
+
+//esta función se dispara desde la etiqueta <body> de categories.html con el evento onload;
+function cargarNombreUsuarioCategories(){
+
+    //Obtengo el valor previamente guardado desde el almacen del navegador
+    nombreUsuario = window.localStorage.getItem('userName');
+    
+    //Lo inserto dentro de un span que cree dentro del body de categories.html
+    document.getElementById('spanUsuarioCategories').innerHTML = nombreUsuario;
+    
+}
