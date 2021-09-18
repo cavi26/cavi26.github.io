@@ -22,7 +22,7 @@ function showProduList(){
     ((maxCount == undefined) || (maxCount != undefined && parseInt(info.cost) <= maxCount))) 
     {
         var html = `
-        <a href="products.html" class="list-group-item list-group-item-action">
+        <a href="product-info.html" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
         document.getElementById("rangeFilterCountMin").value = "";
+
         document.getElementById("rangeFilterCountMax").value = "";
 
         minCount = undefined;

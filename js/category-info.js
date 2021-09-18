@@ -43,3 +43,13 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+//esta función se dispara desde la etiqueta <body> de products.html con el evento onload;
+function cargarNombreUsuarioCategoysInfo(){
+
+    //Obtengo el valor previamente guardado desde el almacen del navegador
+    nombreUsuario = window.localStorage.getItem('userName');
+    
+    //Lo inserto dentro de un span que cree dentro del body de products.html
+    document.getElementById('spanUsuarioCategoysInfo').innerHTML = nombreUsuario;
+    
+}
