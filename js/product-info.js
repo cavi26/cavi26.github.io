@@ -1,5 +1,7 @@
 var productinfo = {};
-var comentarios = {};
+var comentarios = {}; 
+var products = {};
+var productlist = {};
 // Funcion que muestra las imagenes, en forma de carrusel
 function showInfoProduct(array) {
 
@@ -25,8 +27,14 @@ function showInfoProduct(array) {
     }
 } //Finaliza el carrusel
 
+
+
 // Funcion que carga el JSONData que muestra toda la pagina, desde las ima, info y los comentarios
 function comentariocargar() {
+    getJSONData(PRODUCTS_URL).then (function(resultObj2) {
+    if (resultObj2.status === "ok") {
+        productlist = resultObj2.data //trae la lista de productos para sacar los relacionados
+
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             productinfo = resultObj.data;
@@ -48,10 +56,19 @@ function comentariocargar() {
 
             //Muestro las imagenes en forma de galería
             showInfoProduct(productinfo.images);
+            mostrarProductsRelacionados (productinfo.relatedProducts) //muestra los relacionados
+        }
+    });
+            
         }
     });
 
-    
+     
+ 
+
+
+
+
     // carga los comentarios guardados en el JSONData que muestra los comentarios ya realizados 
    // Json.parce lo que hace es convertir la cadena en un objeto y asi guardarlos en "datos" y asi sera mas facil agregar el comentario nuevo
 
@@ -98,12 +115,17 @@ function comentariocargar() {
             }
         }
 
+       
+
 
 document.addEventListener("DOMContentLoaded", function (e) {
     comentariocargar();
+
+    
   });
+  
 
-
+ 
 document.getElementById("comentar").addEventListener("click", function (e) {
     e.preventDefault();
     let descrip = document.getElementById('AgregaComen').value;
@@ -143,6 +165,25 @@ document.getElementById("comentar").addEventListener("click", function (e) {
 
 
 });
+// funcion que muestra los relacionados
+function mostrarProductsRelacionados(array){
+    let htmlContentToAppend = "";
+    for (let i = 0; i < array.length; i++){
+        let inforelacionados = array[i];
+        htmlContentToAppend += `<div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${productlist[inforelacionados].imgSrc}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${productlist[inforelacionados].name}</h5>
+          <p class="card-text">${productlist[inforelacionados].description}</p>
+          <a href="#" class="btn btn-primary">${productlist[inforelacionados].currency} ${productlist[inforelacionados].cost}</a>
+        </div>
+      </div> `
+        
+        
+        
+    }
+    document.getElementById("relatedProducts").innerHTML =htmlContentToAppend
+}
 
 //esta función se dispara desde la etiqueta <body> de products.html con el evento onload;
 function cargarNombreUsuarioProducts(){
@@ -152,5 +193,6 @@ function cargarNombreUsuarioProducts(){
     
     //Lo inserto dentro de un span que cree dentro del body de products.html
     document.getElementById('spanUsuarioProductsinfo').innerHTML = nombreUsuario;
-    
+
 }
+
