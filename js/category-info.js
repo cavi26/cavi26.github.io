@@ -51,5 +51,5 @@ function cargarNombreUsuarioCategoysInfo(){
     
     //Lo inserto dentro de un span que cree dentro del body de products.html
     document.getElementById('spanUsuarioCategoysInfo').innerHTML = nombreUsuario;
-    
+
 }

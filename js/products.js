@@ -21,23 +21,20 @@ function showProduList(){
     if (((minCount == undefined) || (minCount != undefined && parseInt(info.cost) >= minCount)) &&
     ((maxCount == undefined) || (maxCount != undefined && parseInt(info.cost) <= maxCount))) 
     {
-        var html = `
-        <a href="product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="` + info.imgSrc + `" alt="` + info.description + `" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">`+ info.name +`</h4>
-                        <small class="text-muted">` + info.soldCount+ ` artículos</small>
-                    </div>
-                    <p class="mb-1">` + info.description + `</p>
-                    <p class="mb-1"> Costo: $ ` + info.cost + '' + info.currency + `</p>
-                </div>
-
-            </div>
-        </a>  `;
+        var html = 
+ 
+        `<div class="col-md-6"
+        <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="${info.imgSrc}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${info.name}</h5>
+          <p class="card-text">${info.description}</p>
+          <p class="card-text"> ${info.cost} ${info.currency}</p>
+          <small class="text-muted">` + info.soldCount+ ` artículos</small>
+          <a href="product-info.html" class="btn btn-primary" >Mas info</a>
+          </div>
+          </div>
+      </div> `
     }
 
     return html;
@@ -119,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             htmlContentToAppend += showProduList();
         }
+        
 
         document.getElementById ('lista_de_productos').innerHTML = htmlContentToAppend
     });
@@ -199,5 +197,4 @@ function cargarNombreUsuarioProducts(){
     
     //Lo inserto dentro de un span que cree dentro del body de products.html
     document.getElementById('spanUsuarioProducts').innerHTML = nombreUsuario;
-    
 }

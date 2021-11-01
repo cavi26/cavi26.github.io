@@ -57,3 +57,7 @@ function cargarNombreUsuario(){
   document.getElementById('spanUsuarioIndex').innerHTML = nombreUsuario;
 
 }
+
+function cerrarsesion(){
+localStorage.removeItem("userName")
+}

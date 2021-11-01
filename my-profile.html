@@ -55,9 +55,7 @@
          <li class="nav-item">
            <a class="nav-link" href="sell.html">Vender</a>
          </li>
-         <li class="nav-item">
-           <a class="nav-link" href="cart.html">Mi carrito</a>
-         </li>
+       
          
          
        </ul>
@@ -68,20 +66,57 @@
      <div class="dropdown">
        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <img src="perfil.jpg" style="margin-right: 5px;" width="25" height="25">
-         <span id="spanUsuarioProductsinfo"></span>
+         <span id="spanUsuarioProfile"></span>
        </button>
        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
          <a class="dropdown-item" href="my-profile.html">Ver perfil</a>
+         <a class="dropdown-item" href="cart.html">Mi carito</a>
+         <a class="dropdown-item" href="login.html"onclick="cerrarsesion()">Cerrar sesion</a>
        </div>
      </div>
    </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
+    <div>
+      <!-- Perfil info-->
+      <div class="text-center p-4" style="color: rgba(192, 17, 17, 0.849);"><h1><strong>MI PERFIL</strong></h1>
+      </div>
+   
+   <form>
+     <div >
+       <div class="form-row">
+         <div class="form-group col-md-6">
+           <h5><em>Nombres</em></h5>
+           <input type="text" id="name" class="form-control"  placeholder="Nombres..">
+           
+         </div>
+        <div class="form-group col-md-6">
+          <h5><em>Apellidos</em></h5>
+          <input type="text" id="apellido" class="form-control"  placeholder="Apellidos..">
+          
+        </div>
+         <div class="form-group col-md-6">
+           <h5 ><em>Edad</em></h5>
+            <input type="text" id="edad" class="form-control"  placeholder="Edad..">
+           
+         </div>
+       
+       <div class="form-group col-md-6">
+         <h5><em>E-mail</em></h5>
+         <input type="text" id="mail" class="form-control"  placeholder="E-mail..">
+       
+       </div>
+       <div class="form-group col-md-6">
+        <h5 ><em>Numero de Telefono</em></h5>
+         <input type="text" id="tel" class="form-control"  placeholder="Telefono..">
+        
+      </div>
+     </div>
+   </div>
+   
+   <button type="button" id="save" class="btn btn-outline-danger" >
+     Guardar
+   </button>
+    <hr><br>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">

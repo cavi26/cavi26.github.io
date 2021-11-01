@@ -10,3 +10,4 @@ function usuario(){
   //Guardo ese valor en el almacen del navegador con el nombre 'userName' para después poder leerlo
   window.localStorage.setItem('userName', 'Bienvenido ' + nombreUsuario);
 }
+

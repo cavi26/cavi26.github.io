@@ -56,9 +56,7 @@
         <li class="nav-item">
           <a class="nav-link" href="sell.html">Vender</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cart.html">Mi carrito</a>
-        </li>
+      
         
         
       </ul>
@@ -73,17 +71,117 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="my-profile.html">Ver perfil</a>
+        <a class="dropdown-item" href="cart.html">Mi carito</a>
+        <a class="dropdown-item" href="login.html" onclick="cerrarsesion()">Cerrar sesion</a>
       </div>
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+    <div class="text-center p-4">
+      <h1 style="color:hotpink"><strong>Carrito de compras</strong></h1> 
+      </div>
+      
+      
+      
+      <div class="container">
+        
+      <div id="carrito"></div>
+      
+      </div>
+      
+      <div class="container">
+      <div>
+        <h2 class="mb-3" style="color:hotpink"> <strong>Tipo de envío</strong></h2> <!-- Seleccion del tipo de envio, con el costo y que sea requerido-->
+            <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                <input id="Premium" name="publicationType" type="radio" class="custom-control-input" onclick="costoEnvio(0.15)" required="">
+                <label class="custom-control-label" for="Premium" style="color: indigo;" ><em>Premium 2 a 5 días(15%)</em></label>
+                </div>
+                <div class="custom-control custom-radio">
+                <input id="Express" name="publicationType" type="radio" class="custom-control-input"  onclick="costoEnvio(0.07) "required="">
+                <label class="custom-control-label" for="Express"  style="color: indigo;" ><em>Express 5 a 8 días(7%)</em></label>
+                </div>
+                <div class="custom-control custom-radio">
+                <input id="Estándar" name="publicationType" type="radio" class="custom-control-input" onclick="costoEnvio(0.05)" required="">
+                <label class="custom-control-label" for="Estándar" style="color: indigo;" ><em>Estándar 12 a 15 días(5%)</em></label>
+                </div>
+      </div>
+      <!-- Termina el tipo de envio -->
+     
+      
+      <hr><br>
+      
+      <div> <!-- Arranca el Cuadrito calculador -->
+      <ul class="list-group col-md-6">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 style="color: indigo;" class="my-0">Subtotal</h6>
+            
+          </div>
+          <span id="productCostText">USD <span id="subtotal"></span></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 style="color: indigo;" class="my-0">Costo Envio</h6>
+            
+          </div>
+          <span id="productCostText">USD <span id="costoEnvio"></span></span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span style="color: indigo;" >Total ($)</span>
+          <div>USD <span id="envioTotal"></span></div>
+        </li>
+      </ul>
+      </div><br>
+      <!-- Termina el cuadrito -->
+      
+      <hr><br>
+      <div >
+         <!-- Pide la direccion de envio -->
+      <h2 style="color:hotpink"><strong>Dirección de envío</strong></h2>
+      <form>
+        <div >
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <h5 style="color: indigo;"><em>Calle</em></h5>
+              <input type="text" class="form-control"  placeholder="Dirección">
+              
+            </div>
+            <div class="form-group col-md-6">
+              <h5 style="color: indigo;" ><em>Número</em></h5>
+               <input type="text" class="form-control"  placeholder="Número de puerta">
+              
+            </div>
+          
+          <div class="form-group col-md-6">
+            <h5 style="color: indigo;"><em>Esquina</em></h5>
+            <input type="text" class="form-control"  placeholder="Esquina">
+          
+          </div>
+        </div>
+      </div>
+      
+      <button type="button"class="btn btn-outline-success" >
+        Enviar
+      </button>
+        <!-- Termina la parte de envio -->
+       <hr><br>
+     
+      <div>
+      <!-- Arranca la parte de forma de pago -->
+        <h2 style="color:hotpink"><strong>Forma de pago</strong></h2>
+        <div >
+        <h6 style="color: indigo;"><em>-Seleccione una forma de pago-</em></h6>
+        <br>
+        </div>
+        <button type="button" class="btn btn-outline-success">Seleccionar</button>
+      </div><br>
+       <!-- Termina la parte de Forma de pago-->
+      
+      <hr><br>
+      </form>
+      </div>
+    
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>

@@ -156,5 +156,4 @@ function cargarNombreUsuarioSell(){
     
     //Lo inserto dentro de un span que cree dentro del body de sell.html
     document.getElementById('spanUsuarioSell').innerHTML = nombreUsuario;
-    
 }
