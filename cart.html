@@ -140,47 +140,124 @@
          <!-- Pide la direccion de envio -->
       <h2 style="color:hotpink"><strong>Dirección de envío</strong></h2>
       <form>
-        <div >
+        <div class="needs-validation">
           <div class="form-row">
             <div class="form-group col-md-6">
-              <h5 style="color: indigo;"><em>Calle</em></h5>
-              <input type="text" class="form-control"  placeholder="Dirección">
+              <h5 style="color: indigo;" for="inputCalle" ><em>Calle</em></h5>
+              <input type="text" class="form-control" id="inputCalle" placeholder="Dirección" required="">
+              <div class="invalid-feedback"> ingrese direccion</div>
               
             </div>
             <div class="form-group col-md-6">
-              <h5 style="color: indigo;" ><em>Número</em></h5>
-               <input type="text" class="form-control"  placeholder="Número de puerta">
+              <h5 style="color: indigo;" for="inputNumber"><em>Número</em></h5>
+               <input type="text" class="form-control" id="inputNumber" placeholder="Número de puerta"required="" >
+               <div class="invalid-feedback"> ingrese numero de puerta</div>
               
             </div>
           
           <div class="form-group col-md-6">
-            <h5 style="color: indigo;"><em>Esquina</em></h5>
-            <input type="text" class="form-control"  placeholder="Esquina">
+            <h5 style="color: indigo;" for="InputEsq"><em>Esquina</em></h5>
+            <input type="text" class="form-control" id="inputEsq" placeholder="Esquina"required="">
+            <div class="invalid-feedback"> ingrese esquina</div>
           
           </div>
         </div>
       </div>
-      
-      <button type="button"class="btn btn-outline-success" >
-        Enviar
-      </button>
+    
         <!-- Termina la parte de envio -->
        <hr><br>
      
       <div>
       <!-- Arranca la parte de forma de pago -->
+      
         <h2 style="color:hotpink"><strong>Forma de pago</strong></h2>
-        <div >
-        <h6 style="color: indigo;"><em>-Seleccione una forma de pago-</em></h6>
+        <div class="needs-validation">
+        <h6 style="color: indigo;" id="formaPago"><em>-Seleccione una forma de pago-</em></h6>
+        <div class="invalid-feedback"> Debe seleccionar una forma de pago</div>
         <br>
         </div>
-        <button type="button" class="btn btn-outline-success">Seleccionar</button>
+        <button type="button" class="btn btn-outline-success"  data-toggle="modal" data-target="#pagoModal">Seleccionar</button>
       </div><br>
        <!-- Termina la parte de Forma de pago-->
-      
-      <hr><br>
-      </form>
+        <!--Boton para enviar todo-->
+      <button id="compraRealizada" type="button" class="btn btn-outline-success" data-toggle="button" ria-pressed="false" autocomplete="off">
+Terminar Compra      </button>
+    </form>
+      <!-- Termina el boton-->
+
+  <!-- Modal para seleccionar la Forma de pago -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="pagoModal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">-Seleccione una forma de pago-</h5>
+              <button id="modalClose" type="button" class="close" data-dismiss="modal" onclick="borrar()"aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="tarjetaCredito" name="formaPagoModal" type="radio" class="custom-control-input" onclick="document.getElementById('formaPago').innerHTML = `<i class='fas fa-credit-card'></i>  Tarjeta de Crédito`"/>
+                      <label class="custom-control-label" for="tarjetaCredito"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                        <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                      </svg>  Tarjeta de Crédito</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                      <p>N°</p>
+                      <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="numeroTarj" placeholder="Numero de tarjeta" >
+                      </div>
+                  </div>
+                    
+                  <div class="row">
+                      <P>Vencimiento:</p>
+                        <div class="form-group col-md-3">
+                      <input type="text" class="form-control" id="mes" placeholder="MM">
+                        </div>
+                      <div>
+                        <p>/</p>
+                      </div>
+                        <div class="form-group col-md-3">
+                      <input type="text" class="form-control" id="anio" placeholder="AAAA">
+                        </div>
+                  </div>
+                  <div class="row">
+                      <p>Cod.Seguridad:</p>
+                      <div class="form-group col-md-3">
+                      <input type="text" class="form-control" id="mes" placeholder="Cod">
+                      </div>
+                  </div>
+                    <hr>
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="cuentaBanco" name="formaPagoModal" type="radio" class="custom-control-input" onclick="document.getElementById('formaPago').innerHTML = `<i class='fas fa-university'></i> Cuenta Bancaria`">
+                      <i class="fa fa-bank" style="font-size:24px"></i><label class="custom-control-label" for="cuentaBanco"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M15 4H1v8h14V4zM1 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H1z"/>
+                        <path d="M13 4a2 2 0 0 0 2 2V4h-2zM3 4a2 2 0 0 1-2 2V4h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 12a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
+                      </svg>  Cuenta Bancaria</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="inputCuenta" placeholder="Numero de cuenta">
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="borrar()">Confirmar</button>
+            </div>
+          </div>
+        </div>
       </div>
+      <!-- Termina el modal-->
+    
     
   <div id="spinner-wrapper">
     <div class="lds-ring">

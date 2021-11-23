@@ -30,7 +30,7 @@ document.getElementById("save").addEventListener('click', function () {
     datos(); //Cuando se hace click en el boton guardar, guarda los cambios
 })
 
-//Funcion que trae los datos guardados en el localstorage y los muestra
+//Funcion que trae los datos guardados en el localstorage y los muestra? esta bien?
 function perfilInfo() {
     let usuario = localStorage.getItem("datos"); //usuario toma el item (datos) dentro de local storage
     let cambios = JSON.parse(usuario); // analiza gramaticamente la cadena en un objeto JS

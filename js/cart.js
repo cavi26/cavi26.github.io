@@ -120,6 +120,61 @@ function productosDelCarrito(array) {
 
 }
 
+
+
+function borrar() {
+  formaDePago=document.getElementById("formaPago");
+  formaDePago.classList.remove("is-invalid");
+  formaDePago.classList.remove("rojo");
+}
+
+// Controles de envio 
+document.getElementById('compraRealizada').addEventListener("click",function(){
+       
+  var numero=document.getElementById("inputNumber"); 
+  var direccion=document.getElementById("inputCalle");
+  var esquina=document.getElementById("inputEsq"); 
+  var formaDePago=document.getElementById("formaPago");
+  
+
+        direccion.classList.remove("is-invalid");
+        numero.classList.remove("is-invalid");
+        esquina.classList.remove("is-invalid");
+        formaDePago.classList.remove("is-invalid");
+        formaDePago.classList.remove("rojo");
+     
+         if (direccion.value==="") { 
+           direccion.classList.add("is-invalid");                         
+         } 
+         else {
+           direccion.classList.add("is-valid");
+         }
+         if (numero.value==="") {
+           numero.classList.add("is-invalid");
+         }
+         else {
+           numero.classList.add("is-valid");
+         }
+
+         if (esquina.value==="") {
+           esquina.classList.add("is-invalid");
+         }
+         
+         else{          
+           esquina.classList.add("is-valid");
+         }
+         
+         if (formaDePago.textContent ==="-Seleccione una forma de pago-"){
+          formaDePago.classList.add("is-invalid");
+          formaDePago.classList.add("rojo");
+         }
+        else {
+           formaDePago.classList.add("is-valid")
+         }
+      
+  });
+
+
 // Funcion que carga el JSONData que muestra los productos que van en el carrito
 document.addEventListener("DOMContentLoaded", function (e) {
   fetch(" https://japdevdep.github.io/ecommerce-api/cart/654.json")
@@ -131,9 +186,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
     )
 })
-
-
-
 
 //esta función se dispara desde la etiqueta <body> de cart.html con el evento onload;
 function cargarNombreUsuarioCart() {
